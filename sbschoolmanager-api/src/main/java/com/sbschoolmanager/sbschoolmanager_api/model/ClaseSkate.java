@@ -25,6 +25,6 @@ public class ClaseSkate {
     private String tipoClase;
 
     @Column(name = "Tarifa")
-    private BigDecimal tarifa; //Para evitar errores de redondeo con double o float
+    private BigDecimal tarifa; //Para evitar errores de redondeo con double o float.
 
 }
