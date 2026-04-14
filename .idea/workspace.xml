@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="repositorio y daos creados para Grupo">
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/ClaseSkateRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/dao/ClaseSkateDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/dao/ClaseSkateDaoImpl.java" afterDir="false" />
+    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="repositorio y daos creados para ClaseSkate">
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/HorarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/dao/HorarioDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/dao/HorarioDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776158823134</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="repositorio y daos creados para ClaseSkate">
+      <option name="closed" value="true" />
+      <created>1776183317524</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1776183317524</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -191,6 +199,7 @@
     <MESSAGE value="repositorio y daos creados para Alumno" />
     <MESSAGE value="repositorio y daos creados para Profesor" />
     <MESSAGE value="repositorio y daos creados para Grupo" />
-    <option name="LAST_COMMIT_MESSAGE" value="repositorio y daos creados para Grupo" />
+    <MESSAGE value="repositorio y daos creados para ClaseSkate" />
+    <option name="LAST_COMMIT_MESSAGE" value="repositorio y daos creados para ClaseSkate" />
   </component>
 </project>
