@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="Service y controller de Horario y Material">
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/controller/AlquilarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/controller/ContratarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/service/AlquilarService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/service/ContratarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="Service y controller de Aqlquilar y Contratar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -248,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776197666142</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Service y controller de Aqlquilar y Contratar">
+      <option name="closed" value="true" />
+      <created>1776200195673</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1776200195673</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -273,6 +275,7 @@
     <MESSAGE value="Service y controller de Alumno y Profe" />
     <MESSAGE value="Service y controller de ClaseSkate y Grupo" />
     <MESSAGE value="Service y controller de Horario y Material" />
-    <option name="LAST_COMMIT_MESSAGE" value="Service y controller de Horario y Material" />
+    <MESSAGE value="Service y controller de Aqlquilar y Contratar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Service y controller de Aqlquilar y Contratar" />
   </component>
 </project>
