@@ -4,6 +4,7 @@ import com.sbschoolmanager.sbschoolmanager_api.model.Grupo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +39,7 @@ public class GrupoDaoImpl implements GrupoDao{
     }
 
     @Override
+    @Transactional
     public Grupo save(Grupo grupo) {
         if(grupo.getCodGrupo()== null){
             entityManager.persist(grupo);
@@ -48,6 +50,7 @@ public class GrupoDaoImpl implements GrupoDao{
     }
 
     @Override
+    @Transactional
     public void deleteById(Integer id) {
         Grupo grupo = entityManager.find(Grupo.class, id);
         if(grupo !=null){

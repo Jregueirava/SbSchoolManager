@@ -4,6 +4,7 @@ import com.sbschoolmanager.sbschoolmanager_api.model.Profesor;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +29,7 @@ public class ProfesorDaoImpl implements ProfesorDao {
     }
 
     @Override
+    @Transactional
     public Profesor save(Profesor profesor) {
         if(profesor.getCodProfesor()== null){
             entityManager.persist(profesor);
@@ -38,6 +40,7 @@ public class ProfesorDaoImpl implements ProfesorDao {
     }
 
     @Override
+    @Transactional
     public void deleteById(Integer id) {
         Profesor profesor = entityManager.find(Profesor.class, id);
         if(profesor !=null){

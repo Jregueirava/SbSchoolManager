@@ -4,6 +4,7 @@ import com.sbschoolmanager.sbschoolmanager_api.model.ClaseSkate;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.List;
@@ -38,6 +39,7 @@ public class ClaseSkateDaoImpl implements ClaseSkateDao{
     }
 
     @Override
+    @Transactional
     public ClaseSkate save(ClaseSkate claseSkate) {
         if(claseSkate.getCodClaseSkate()== null){
             entityManager.persist(claseSkate);
@@ -48,6 +50,7 @@ public class ClaseSkateDaoImpl implements ClaseSkateDao{
     }
 
     @Override
+    @Transactional
     public void deleteById(Integer id) {
         ClaseSkate claseSkate = entityManager.find(ClaseSkate.class, id);
         if(claseSkate != null){

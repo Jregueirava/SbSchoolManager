@@ -5,6 +5,7 @@ import com.sbschoolmanager.sbschoolmanager_api.model.AlquilarId;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +40,7 @@ public class AlquilarDaoImpl implements AlquilarDao{
     }
 
     @Override
+    @Transactional
     public Alquilar save(Alquilar alquilar) {
         return entityManager.merge(alquilar); // Al ser clave compuesta se usa merge, jpa gestiona si es insert o update por la clave(existente o no)
     }

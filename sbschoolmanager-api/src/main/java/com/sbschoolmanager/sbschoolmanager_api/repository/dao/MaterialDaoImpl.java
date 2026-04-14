@@ -4,6 +4,7 @@ import com.sbschoolmanager.sbschoolmanager_api.model.Material;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +39,7 @@ public class MaterialDaoImpl implements MaterialDao {
     }
 
     @Override
+    @Transactional
     public Material save(Material material) {
         if(material.getCodMaterial() == null){
             entityManager.persist(material);
@@ -48,6 +50,7 @@ public class MaterialDaoImpl implements MaterialDao {
     }
 
     @Override
+    @Transactional
     public void deleteById(Integer id) {
         Material material = entityManager.find(Material.class, id);
         if(material != null){

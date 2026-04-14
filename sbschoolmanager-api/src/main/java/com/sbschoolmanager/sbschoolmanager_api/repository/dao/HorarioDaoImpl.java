@@ -4,6 +4,7 @@ import com.sbschoolmanager.sbschoolmanager_api.model.Horario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +39,7 @@ public class HorarioDaoImpl implements HorarioDao {
     }
 
     @Override
+    @Transactional
     public Horario save(Horario horario) {
         if(horario.getCodHorario()== null){
             entityManager.persist(horario);
@@ -48,6 +50,7 @@ public class HorarioDaoImpl implements HorarioDao {
     }
 
     @Override
+    @Transactional
     public void delteById(Integer id) {
         Horario horario = entityManager.find(Horario.class, id);
         if(horario != null){

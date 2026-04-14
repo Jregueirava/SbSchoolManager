@@ -5,6 +5,7 @@ import com.sbschoolmanager.sbschoolmanager_api.model.ContratarId;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +40,7 @@ public class ContratarDaoImpl implements ContratarDao{
     }
 
     @Override
+    @Transactional
     public Contratar save(Contratar contratar) {
         return entityManager.merge(contratar);
     }

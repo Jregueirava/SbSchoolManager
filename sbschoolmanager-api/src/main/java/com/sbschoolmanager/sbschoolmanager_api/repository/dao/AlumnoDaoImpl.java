@@ -32,6 +32,7 @@ public class AlumnoDaoImpl implements AlumnoDao {
     }
 
     @Override
+    @Transactional
     public Alumno save(Alumno alumno) {
         if(alumno.getCodAlumno() == null){
             entityManager.persist(alumno);
@@ -42,6 +43,7 @@ public class AlumnoDaoImpl implements AlumnoDao {
     }
 
     @Override
+    @Transactional
     public void deleteById(Integer id) {
         Alumno alumno = entityManager.find(Alumno.class, id);
         if(alumno != null){
