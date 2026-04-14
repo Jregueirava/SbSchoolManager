@@ -30,7 +30,7 @@ public class MaterialRepository {
         return materialDao.save(material);
     }
 
-    public void delteById(Integer id){
+    public void deleteById(Integer id){
         materialDao.deleteById(id);
     }
 }

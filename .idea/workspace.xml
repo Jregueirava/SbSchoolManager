@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="Service y controller de Alumno y Profe">
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/controller/ClaseSkateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/controller/GrupoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/service/ClaseSkateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/service/GrupoService.java" afterDir="false" />
+    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="Service y controller de ClaseSkate y Grupo">
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/controller/HorarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/controller/MaterialController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/service/HorarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/service/MaterialService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/MaterialRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/repository/MaterialRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776194555606</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Service y controller de ClaseSkate y Grupo">
+      <option name="closed" value="true" />
+      <created>1776196084624</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1776196084624</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -255,6 +264,7 @@
     <MESSAGE value="repositorio y daos creados para Contratar" />
     <MESSAGE value="Correccion para que funcione transactional" />
     <MESSAGE value="Service y controller de Alumno y Profe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Service y controller de Alumno y Profe" />
+    <MESSAGE value="Service y controller de ClaseSkate y Grupo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Service y controller de ClaseSkate y Grupo" />
   </component>
 </project>
