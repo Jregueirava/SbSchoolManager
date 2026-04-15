@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment=".">
+    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="Creacion del main para probar el funcionamiento de la API">
+      <change afterPath="$PROJECT_DIR$/SQLpsw.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLpsw.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application-local.properties.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/SbschoolmanagerApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/java/com/sbschoolmanager/sbschoolmanager_api/SbschoolmanagerApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application-docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,19 +51,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.SbschoolmanagerApiApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jesus/Desktop/Entregas TFC/SbSchoolManager",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.SbschoolmanagerApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jesus/Desktop/Entregas TFC/SbSchoolManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jesus\Desktop\Entregas TFC\SbSchoolManager\mysql\init" />
@@ -282,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776200549902</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Creacion del main para probar el funcionamiento de la API">
+      <option name="closed" value="true" />
+      <created>1776203963068</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1776203963069</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -309,6 +324,7 @@
     <MESSAGE value="Service y controller de Horario y Material" />
     <MESSAGE value="Service y controller de Aqlquilar y Contratar" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Creacion del main para probar el funcionamiento de la API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creacion del main para probar el funcionamiento de la API" />
   </component>
 </project>

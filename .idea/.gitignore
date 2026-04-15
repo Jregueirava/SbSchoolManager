@@ -43,3 +43,6 @@ docker-compose.override.yml
 # Variables de entorno
 .env
 .env.*
+
+# Properties con credenciales locales
+src/main/resources/application-local.properties
