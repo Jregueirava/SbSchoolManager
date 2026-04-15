@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="Creacion del main para probar el funcionamiento de la API">
-      <change afterPath="$PROJECT_DIR$/SQLpsw.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SQLpsw.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application-local.properties.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="ab2abf30-83b7-4e60-8791-22017340173e" name="Changes" comment="Cabios de seguridad en el repositorio antes de hacerlo público">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application-docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sbschoolmanager-api/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776203963069</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Cabios de seguridad en el repositorio antes de hacerlo público">
+      <option name="closed" value="true" />
+      <created>1776251729043</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1776251729043</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -325,6 +325,7 @@
     <MESSAGE value="Service y controller de Aqlquilar y Contratar" />
     <MESSAGE value="." />
     <MESSAGE value="Creacion del main para probar el funcionamiento de la API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creacion del main para probar el funcionamiento de la API" />
+    <MESSAGE value="Cabios de seguridad en el repositorio antes de hacerlo público" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cabios de seguridad en el repositorio antes de hacerlo público" />
   </component>
 </project>

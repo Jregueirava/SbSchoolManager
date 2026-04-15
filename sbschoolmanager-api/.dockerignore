@@ -3,3 +3,8 @@ target/
 .idea/
 *.iml
 .mvn/
+.env
+.env.*
+*.log
+docker-compose*.yml
+src/main/resources/application-local.properties
