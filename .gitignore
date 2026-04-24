@@ -1,0 +1,31 @@
+﻿# ── Secretos y credenciales ───────────────────────────────────
+.env
+.env.*
+SQLpsw.env
+*.env
+!*.env.example
+
+# ── Spring Boot: archivos con credenciales ────────────────────
+**/application-local.properties
+**/application-docker.properties
+
+# ── Docker ───────────────────────────────────────────────────
+mysql/data/
+**/mysql/data/
+docker-compose.override.yml
+
+# ── IntelliJ IDEA ────────────────────────────────────────────
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ── Maven ────────────────────────────────────────────────────
+**/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# ── VS Code ──────────────────────────────────────────────────
+.vscode/
+
+# ── Logs ─────────────────────────────────────────────────────
+*.log

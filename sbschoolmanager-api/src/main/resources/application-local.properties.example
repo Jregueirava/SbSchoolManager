@@ -1,6 +1,6 @@
 # application-local.properties.example
 # Copia este archivo como application-local.properties y rellena tus valores
 spring.datasource.url=jdbc:mysql://localhost:3306/EscuelaSkate
-spring.datasource.username=
-spring.datasource.password=
+spring.datasource.username=TU_USUARIO
+spring.datasource.password=TU_CONTRASEÑA
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
