@@ -238,6 +238,13 @@ GET /api/materiales/alumno/{codAlumno}
 - **Paquete `http`** — comunicación con la API REST
 
 ***
+## ⚠️ Nota de seguridad
+
+Las credenciales presentes en commits anteriores han sido
+invalidadas y sustituidas por nuevas. Los archivos sensibles
+están correctamente excluidos mediante `.gitignore` desde
+el commit [fecha]. Para configurar el proyecto localmente,
+consulta los archivos `.example` incluidos en el repositorio.
 
 ## Autor
 
