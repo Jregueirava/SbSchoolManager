@@ -1,0 +1,135 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+
+
+# ── Flutter y Dart ─────
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.g.dart
+*.freezed.dart
+
+# ── Archivos de configuración local ─────────
+pubspec.lock
+
+# ── Android ────────
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties        # fichero de firma
+**/android/**/*.keystore          # claves de firma
+**/android/**/*.jks               # claves de firma
+
+# ── iOS ─────────
+**/ios/.symlinks/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/Generated.xcconfig
+**/ios/Pods/
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# ── VS Code ──────────
+.vscode/
+!.vscode/extensions.json         # este se puede incluir si quieres compartir las extensiones recomendadas
+
+# ── Variables de entorno y secretos ────────
+.env
+.env.*
+!.env.example
+*.env
+!*.env.example
+
+# ── Logs y temporales ────
+*.log
+*.tmp
+*.temp
+
+# ── Sistema operativo ────
+.DS_Store           # Mac
+Thumbs.db           # Windows
+Desktop.ini         # Windows
+
+# ── Android generados automáticamente ────
+**/android/.gradle/
+**/android/build/
+**/android/app/build/
+**/android/gradle/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/*.iml
+**/android/captures/
+
+# ── Gradle ────────
+gradle-wrapper.jar
+.gradle/
+build/
+GeneratedPluginRegistrant.java
+
+# ── Archivos Android específicos ─────────────────────────────
+android/build.gradle.kts
+android/gradle.properties
+android/settings.gradle.kts
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/app/build.gradle.kts
+android/.gradle/
+android/app/build/
+android/build/
+android/gradle/
