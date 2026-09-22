@@ -1,122 +1,178 @@
 import 'package:flutter/material.dart';
+import "config/app_colors.dart";
+import "screens/home_screen.dart";
 
 void main() {
-  runApp(const MyApp());
+  runApp(const SbChoolManagerApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class SbSchoolManagerApp extends StatelessWidget{
+  const SbSchoolManagerApp({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+  Widget build (BuildContext context){
+    return MaterialAPP(
+      title: "SbSchoolManager",
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primary,
+          primary: AppColors.primary,
+          secondary: AppColors.primaryLight,
+          surface: AppColors.blanco,
+          surfaceContainerHighest: AppColors.grisSuave,
+          onPrimary: AppColors.blanco,
+          onSecondary: AppColors.blanco,
+          onSurface: AppColors.grisOscuro,
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        scaffoldBackgroundColor: AppColors.grisFondo,
+        //AppBar
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.primary,
+          foregroundColor: AppColors.blanco,
+          elevation: 0,
+          centerTitle: false,
+          titleTextStyle: TextStyle(
+            color: AppColors.blanco,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+          inconTheme: IconThemeData(color: AppColors.blanco),
+        ),
+        //Cards
+        cardTheme: CardThemeData(
+          color: AppColors.blanco,
+          elevation: 2,
+          shadowColor: Color(0x1A1A237E),
+          shape: RoundedRectangleBorder(
+            borderRadius: _BorderRadius.circular(14),
+          ),
+          margin: EdgeInsets.zero,
+        ),
+        // Botones elevados
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primary,
+            foregroundColor: AppColors.blanco,
+            elevation: 0,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24, vertical: 14),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              textStyle: const TextStyle(
+                fonstSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          //Botones outlined
+          outlinedButtonTheme: OutLinedButtonThemeData(
+            style: OutlinedButton.styleFrom(
+              foregroundColor: AppColors.primary,
+              side: const BorderSide(color: AppColors.primary),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24, vertical: 14
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+          ),
+
+          //FloattingActionButton
+          floatingActionButtonTheme: const floatingActionButtonThemeData(
+            backgroundColor: AppColors.primary,
+            foregroundColor: AppColors.blanco,
+            elevation: 4,
+          ),
+          //Inputs
+          inputDecorationTheme: InputDecorationTheme(
+            filled: true,
+            fillColor: AppColors.blanco,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppColors.grisClaro),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(
+                color: AppColors.primary, width: 2),
+              ),
+              labelStyle: const TextStyle(color: AppColors.grisMedio),
+              prefixIconColor: AppColors.grisMedio,
+            ),
+
+            //NavigatonBar
+            navigationBarTheme: NavigationBarThemeData(
+              backgroundColor: AppColors.blanco,
+              indicatorColor: AppColors.primarySoft,
+              labelTextStyle: WidgetStateProperty.resolveWith((states){
+                if(states.contains(WidgetState.selected)){
+                  return const TextStyle(
+                    color: AppColors.primary,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                  );
+                }
+                return const TextStyle(
+                  color: AppColors.grisMedio,
+                  fontSize: 11,
+                );
+              }),
+              iconTheme: WidgetStateProperty.resolveWith((states){
+                if(states.contains(WidgetState.selected)){
+                  return const IconThemeData(color: AppColors.primary);
+                }
+                return const IconThemeData(color: AppColors.grisMedio);
+              }),
+            ) ,
+            //Chips
+
+            chipTheme: ChipThemeData(
+              backgroundColor: AppColors.grisSuave,
+              selectedColor: AppColors.primary,
+              labelStyle: const TextStyle(fontSize: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            // Divider
+            dividerTheme: const DividerThemeData(
+            color: AppColors.grisSuave,
+            thickness: 1,
+            ),
+
+            //Textos
+            textTheme: const TextTheme(
+              headlineMedium: TextStyle(
+                color: AppColors.grisOscuro,
+                fontSize: 22,
+                fontWeigth: FontWeigth.bold,
+              ),
+              titleLarge: TextStyle(
+                color: AppColors: grisOscuro,
+                fontSize: 16,
+                fontweigth: FontWeigth.w600, 
+              ),
+               titleMedium: TextStyle(
+                color: AppColors.grisOscuro,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              bodyMedium: TextStyle(
+                color: AppColors.grisOscuro,
+                fontSize: 13,
+              ),
+              bodySmall: TextStyle(
+               color: AppColors.grisMedio,
+              fontSize: 11,
+           ),
+         ),
+       ),
+      home: const HomeScreen(),
     );
   }
 }
+
