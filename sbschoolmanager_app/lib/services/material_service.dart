@@ -16,7 +16,7 @@ class MaterialService {
   }
 
   Future <List<Material>> obtenerTodos()async{
-    final data = await _client.post(ApiConfig.materiales);
+    final data = await _client.get(ApiConfig.materiales);
     return (data as List).map((json) => Material.fromJson(json)).toList();
   }
 

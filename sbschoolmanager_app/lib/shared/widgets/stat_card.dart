@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "../../app_color.dart";
+import "../../config/app_colors.dart";
 
 class StartCard extends StatelessWidget{
   final IconData icono;
@@ -8,7 +8,7 @@ class StartCard extends StatelessWidget{
   final String valor;
   final String label;
 
-  const StatCard({
+  const StartCard({
       super.key,
       required this.icono,
       required this.color,
@@ -25,7 +25,7 @@ class StartCard extends StatelessWidget{
         decoration: BoxDecoration(
           color: AppColors.blanco,
           borderRadius: BorderRadius.circular(14),
-          boxShadow[
+          boxShadow:[
             BoxShadow(
               color: AppColors.primary.withOpacity(0.08),
               blurRadius: 8,

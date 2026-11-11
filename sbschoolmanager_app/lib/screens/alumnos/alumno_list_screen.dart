@@ -7,7 +7,7 @@ import"../../services/grupo_service.dart";
 import"alumno_form_screen.dart";
 import"alumno_detalle_screen.dart";
 
-class AlumnoListScreen extends SatatefulWidget{
+class AlumnoListScreen extends StatefulWidget{
     const AlumnoListScreen({super.key});
 
     @override
@@ -32,13 +32,13 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
     static const _colorNivel ={
         "Principiante": AppColors.principiante,
         "Intermedio" : AppColors.intermedio,
-        "Avanzado": AppColors.avanzando,
+        "Avanzado": AppColors.avanzado,
     };
 
     static const _bgNivel={
-        "Principiante" = AppColors.principianteSuave,
-        "Intermedio" = AppColors.intermedioSuave,
-        "Avanzado" = AppColors.avanzandoSuave,
+        "Principiante" : AppColors.principianteSuave,
+        "Intermedio" : AppColors.intermedioSuave,
+        "Avanzado" : AppColors.avanzadoSuave,
     };
 
     @override
@@ -49,14 +49,16 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
 
     void _cargarAlumnos(){
         setState((){
-            _alumnosFuture = _alumnoService.obtenerTodos().then((lista)async{
+            _alumnosFuture = _alumnoService.obtenerTodos().then((lista)async {
                 _todos = lista;
                 for(final a in lista){
-                    final grupos= await _grupoService.obtenerPorAlumno(a.codAlumno);
+                    final grupos= await _grupoService.obtenerPorAlumno(a.codAlumno!);
                     if(grupos.isNotEmpty){
-                        _nivelPorAlumno[a.codAlumno!] = grupos.first_nivel;
+                        _nivelPorAlumno[a.codAlumno!] = grupos.first.nivel;
                     }
                 }
+                _aplicarFiltros();
+                return lista;
             });
         });
     }
@@ -64,7 +66,7 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
     void _aplicarFiltros(){
         final q = _searchCtrl.text.toLowerCase();
         setState((){
-            _filtrados = todos.where((a){
+            _filtrados = _todos.where((a){
                 final coincideBusqueda = "${a.nombre} ${a.apellido}".toLowerCase().contains(q)|| a.dni.toLowerCase().contains(q);
                 final nivel = _nivelPorAlumno[a.codAlumno] ?? "";
                 final coincideNivel = _nivelFiltro == "Todos" || nivel == _nivelFiltro;
@@ -117,7 +119,7 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
                 onPressed: ()async{
                     await Navigator.push(
                         context,
-                        MaterialPageRoute(buider: (_) => const AlumnoFormScreen(),)
+                        MaterialPageRoute(builder: (_) => const AlumnoFormScreen()),
                     );
                     _cargarAlumnos();
                 },
@@ -128,7 +130,7 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
 
     Widget _buildBuscador(){
         return Padding(
-            padding const EdgeInsets.fromLTRB(12, 12, 12, 6),
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),
             child: TextField(
                 controller: _searchCtrl,
                 onChanged: (_) => _aplicarFiltros(),
@@ -137,7 +139,7 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
                     hintStyle: const TextStyle(color: AppColors.grisClaro),
                     prefixIcon: const Icon(
                         Icons.search,
-                        colors: AppColors.grisMedio,
+                        color: AppColors.grisMedio,
                     ),
                     suffixIcon: _searchCtrl.text.isNotEmpty ? IconButton(
                         icon: const Icon(Icons.clear,
@@ -147,7 +149,7 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
                             _aplicarFiltros();
                         },
                     )
-                    null,
+                    :null,
                 ),
             ),
         );
@@ -159,9 +161,9 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 12),
-                itemCount: _niveles-length,
-                separatorBuilder:(_, _) => const SizedBox(width: 8),
-                itemBuilder(_, i){
+                itemCount: _niveles.length,
+                separatorBuilder:(_, __) => const SizedBox(width: 8),
+                itemBuilder:(_, i){
                     final nivel = _niveles[i];
                     final seleccionado = _nivelFiltro == nivel;
                     return FilterChip(
@@ -172,10 +174,10 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
                             _aplicarFiltros();
                         },
                         selectedColor: AppColors.primary,
-                        backgroundsColor: AppColors.blanco,
+                        backgroundColor: AppColors.blanco,
                         labelStyle: TextStyle(
-                            color: selccionado ? AppColors.blanco : AppColors.grisOscuro,
-                            fontWeight: FontWeight.w500, fontsize: 12,
+                            color: seleccionado ? AppColors.blanco : AppColors.grisOscuro,
+                            fontWeight: FontWeight.w500, fontSize: 12,
 
                         ),
                         checkmarkColor: AppColors.blanco,
@@ -229,7 +231,7 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
                         final nivel = _nivelPorAlumno[alumno.codAlumno] ?? "";
                         return Card(
                             margin: const EdgeInsets.only(bottom: 8),
-                            child: ListTitle(
+                            child: ListTile(
                                 leading: CircleAvatar(
                                     backgroundColor: AppColors.primarySoft,
                                     child: Text(
@@ -256,14 +258,14 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
                                     ),
                                 ),
                                 trailing: Row(
-                                    mainAxisAlignment: MainAxisSize.min,
+                                    mainAxisSize: MainAxisSize.min,
                                     children:[
                                         if(nivel.isNotEmpty)
                                         Container(
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 8, vertical: 3
                                             ),
-                                            decortion: BoxDecoration(
+                                            decoration: BoxDecoration(
                                                 color: _bgNivel[nivel],
                                                 borderRadius: BorderRadius.circular(10),
                                             ),
@@ -283,7 +285,7 @@ class _AlumnoListScreenSate extends State<AlumnoListScreen>{
                                                 color: AppColors.error,
                                                 size: 20,
                                             ),
-                                            onPressed: () => eliminar(alumno.codAlumno),
+                                            onPressed: () => _eliminar(alumno.codAlumno!),
                                         ),
                                     ],
                                 ),

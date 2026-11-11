@@ -46,18 +46,18 @@ class HomeScreen extends StatefulWidget{
       _cargarDatos();
     }
 
-    Futere<void> _cargarDatos()async{
+    Future<void> _cargarDatos()async{
       try{
-        final resultados = await Furture.wait({
+        final resultados = await Future.wait({
           _alumnoService.obtenerTodos(),
-          -profesorService.obtenerTodos(),
+          _profesorService.obtenerTodos(),
 
         });
         setState((){
           _totalAlumnos = resultados[0].length;
            _totalProfesores = resultados[1].length;
             _totalClases = resultados[2].length;
-            _horariosHoy = (resutlados[3]as List<Horario>)
+            _horariosHoy = (resultados[3]as List<Horario>)
             .where((h) => h.dia == _diaHoy).toList();
             _cargando = false;
         });
@@ -68,14 +68,14 @@ class HomeScreen extends StatefulWidget{
     @override
     Widget build (BuildContext context){
       return Scaffold(
-        backgroundColor AppColors.grisFondo,
+        backgroundColor: AppColors.grisFondo,
         body: _cargando
           ? const Center(child: CircularProgressIndicator())
           : CustomScrollView(
-            silvers: [
+            slivers: [
               _buildSilverAppBar(),
-              SilverToBoxAdapter(child._buildAccesoRapido()),
-              SilverToBoxAdapter(child._buildHoySection()),
+              SliverToBoxAdapter(child:_buildAccesoRapido()),
+              SliverToBoxAdapter(child:_buildHoySection()),
             ],
           ) ,
           bottomNavigationBar: _buildBottomNav(),
@@ -83,15 +83,15 @@ class HomeScreen extends StatefulWidget{
     }
 
     Widget _buildSilverAppBar(){
-      return SilverAppBar(
+      return SliverAppBar(
         expandedHeight: 210,
         pinned: true,
         backgroundColor: AppColors.primary,
         flexibleSpace: FlexibleSpaceBar(
           background: Container(
-            decortion: const BoxDecoration(
-              gradient: LinerGradient(
-                begin: Aligment.topLeft,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[
                   AppColors.primary,
@@ -101,27 +101,27 @@ class HomeScreen extends StatefulWidget{
             ),
             padding: const EdgeInsets.fromLTRB(20, 60, 20, 16),
             child: Column(
-              crossAxisAlignment: crossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children:[
                 Row(
-                  mainAxisAlignment: MainAxisAligment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children:[
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children[
-                  cosnt Text(
+                      children:[
+                  const Text(
                   "¡Bienvendio!",
                   style: TextStyle(
                     color: Colors.white70,
                     fontSize: 14,
                   ),
                 ),
-                cosnt Text(
+                const Text(
                   "Panel principal",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
-                    fontWeight: fontWeight.bold,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
@@ -135,7 +135,7 @@ class HomeScreen extends StatefulWidget{
               ],
             ),
             CircleAvatar(
-              backgroundColor: Colors.white.whiteOpacity(0.2),
+              backgroundColor: Colors.white.withOpacity(0.2),
               child: const Icon(
                 Icons.notifications_outlined,
                 color: Colors.white,
@@ -163,7 +163,7 @@ class HomeScreen extends StatefulWidget{
 
     Widget _buildAccesoRapido(){
       return Padding(
-        padding const EdgeInsets.fromLTRB(16, 20, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
             children:[
@@ -228,7 +228,7 @@ class HomeScreen extends StatefulWidget{
     }
     Widget _buildHoySection(){
       return Padding(
-        padding const EdgeInsets.fromLTRB(16, 8, 16, 24),
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -247,12 +247,12 @@ class HomeScreen extends StatefulWidget{
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: AppColors.blanco,
-                  borderRadius: borderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(14),
                 ),
                 child: const Row(
-                  mainAxisAlignment: MainAxisAligment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.event_avilable,
+                    Icon(Icons.event_available,
                       color: AppColors.grisClaro),
                     SizedBox(width: 8),
                     Text(
@@ -263,7 +263,7 @@ class HomeScreen extends StatefulWidget{
                 ),
               ) 
               else
-                  _horariosHoy.map(
+                 ... _horariosHoy.map(
                     (h) => HorarioHoyCard(horario: h),
                   ),
           ],
@@ -276,22 +276,22 @@ class HomeScreen extends StatefulWidget{
         selectedIndex: _indexNav,
         onDestinationSelected: (i)=> setState(()=> _indexNav=i),
         destinations: const[
-          NavaigationDestination(
+          NavigationDestination(
             icon: Icon(Icons.home_outlined),
             selectedIcon: Icon(Icons.home),
             label: "Inicio",
           ),
-          NavaigationDestination(
+          NavigationDestination(
             icon: Icon(Icons.school_outlined),
-            selctedIcon: Icons(Icons.school),
+            selectedIcon: Icon(Icons.school),
             label: "Alumnos",
           ),
-          NavaigationDestination(
+          NavigationDestination(
             icon: Icon(Icons.skateboarding_outlined),
             selectedIcon: Icon(Icons.skateboarding),
             label: "Clases",
           ),
-          NavaigationDestination(
+          NavigationDestination(
             icon: Icon(Icons.inventory_2_outlined),
             selectedIcon: Icon(Icons.inventory_2),
             label: "Material",

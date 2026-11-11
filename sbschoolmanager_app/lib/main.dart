@@ -3,7 +3,7 @@ import "config/app_colors.dart";
 import "screens/home_screen.dart";
 
 void main() {
-  runApp(const SbChoolManagerApp());
+  runApp(const SbSchoolManagerApp());
 }
 
 class SbSchoolManagerApp extends StatelessWidget{
@@ -11,7 +11,7 @@ class SbSchoolManagerApp extends StatelessWidget{
 
   @override
   Widget build (BuildContext context){
-    return MaterialAPP(
+    return MaterialApp(
       title: "SbSchoolManager",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -38,7 +38,7 @@ class SbSchoolManagerApp extends StatelessWidget{
             fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
-          inconTheme: IconThemeData(color: AppColors.blanco),
+          iconTheme: IconThemeData(color: AppColors.blanco),
         ),
         //Cards
         cardTheme: CardThemeData(
@@ -46,7 +46,7 @@ class SbSchoolManagerApp extends StatelessWidget{
           elevation: 2,
           shadowColor: Color(0x1A1A237E),
           shape: RoundedRectangleBorder(
-            borderRadius: _BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(14),
           ),
           margin: EdgeInsets.zero,
         ),
@@ -62,13 +62,13 @@ class SbSchoolManagerApp extends StatelessWidget{
                 borderRadius: BorderRadius.circular(12),
               ),
               textStyle: const TextStyle(
-                fonstSize: 14,
+                fontSize: 14,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
           //Botones outlined
-          outlinedButtonTheme: OutLinedButtonThemeData(
+          outlinedButtonTheme: OutlinedButtonThemeData(
             style: OutlinedButton.styleFrom(
               foregroundColor: AppColors.primary,
               side: const BorderSide(color: AppColors.primary),
@@ -82,7 +82,7 @@ class SbSchoolManagerApp extends StatelessWidget{
           ),
 
           //FloattingActionButton
-          floatingActionButtonTheme: const floatingActionButtonThemeData(
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
             backgroundColor: AppColors.primary,
             foregroundColor: AppColors.blanco,
             elevation: 4,
@@ -149,12 +149,12 @@ class SbSchoolManagerApp extends StatelessWidget{
               headlineMedium: TextStyle(
                 color: AppColors.grisOscuro,
                 fontSize: 22,
-                fontWeigth: FontWeigth.bold,
+                fontWeight: FontWeight.bold,
               ),
               titleLarge: TextStyle(
-                color: AppColors: grisOscuro,
+                color: AppColors.grisOscuro,
                 fontSize: 16,
-                fontweigth: FontWeigth.w600, 
+                fontWeight: FontWeight.w600, 
               ),
                titleMedium: TextStyle(
                 color: AppColors.grisOscuro,

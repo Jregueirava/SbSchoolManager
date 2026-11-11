@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "../../config/app_colors.dart";
 
-class infoRow extends StatelessWidget{
+class InfoRow extends StatelessWidget{
   final IconData icono;
   final String label;
   final String valor;

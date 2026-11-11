@@ -4,7 +4,7 @@ class StatChip extends StatelessWidget{
   final int valor;
   final String label;
 
-  const StartChip({super.key, required this.valor, required this.label});
+  const StatChip({super.key, required this.valor, required this.label});
 
   @override
   Widget build (BuildContext context){

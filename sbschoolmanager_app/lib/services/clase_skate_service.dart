@@ -1,5 +1,5 @@
 import "dart:convert";
-import "pacakage:http/http.dart" as http;
+import "package:http/http.dart" as http;
 import "../config/api_config.dart";
 import "../models/clase_skate.dart";
 

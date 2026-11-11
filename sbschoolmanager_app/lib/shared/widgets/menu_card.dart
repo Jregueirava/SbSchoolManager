@@ -13,6 +13,7 @@ class MenuCard extends StatelessWidget{
     super.key,
     required this.icono,
     required this.color,
+    required this.titulo,
     required this.subtitulo,
     required this.onTap,
   });
@@ -20,7 +21,7 @@ class MenuCard extends StatelessWidget{
   @override
   Widget build (BuildContext context){
     return Card(
-      margin: const Edgeinsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16, vertical: 4),

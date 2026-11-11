@@ -17,13 +17,13 @@ class PdfService{
       for(final a in alquileres){
         final inicio = DateTime.parse(a.fechaInicio);
         final fin = DateTime.parse(a.fechaFin);
-        final dias = fin.difference(inicio).inDavs;
+        final dias = fin.difference(inicio).inDays;
         totalGeneral += dias *a.material.precio;
       }
 
       pdf.addPage(
         pw.MultiPage(
-          pageFormat: PdfPageFromat.a4,
+          pageFormat: PdfPageFormat.a4,
           margin: const pw.EdgeInsets.all(40),
           header: (context) => _construirCabecera(alumno),
           footer: (context) => _construirPiePagina(context),
@@ -56,7 +56,7 @@ class PdfService{
 
     pw.Widget _construirCabecera(Alumno alumno){
       return pw.Container(
-        padding: cosnt pw.EdgeInsets.only(bottom: 12),
+        padding: const pw.EdgeInsets.only(bottom: 12),
         decoration: const pw.BoxDecoration(
           border: pw.Border(
             bottom: pw.BorderSide(color: PdfColors.deepOrange, width: 2),
@@ -64,18 +64,18 @@ class PdfService{
           ),
         ),
         child: pw.Row(
-          mainAxisAlignment: pw.mainAxisAlignment.spaceBetween,
+          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
           children:[
             pw.Text(
               "Escuela Skate",
               style: pw.TextStyle(
                 fontSize: 20,
-                fontWeigth: pw.fontWeigth.bold,
+                fontWeight: pw.FontWeight.bold,
                 color: PdfColors.deepOrange,
               ),
             ),
             pw.Text("Informe de material alquilado",
-            style: pw.Text(
+            style: pw.TextStyle(
               fontSize: 12,
               color: PdfColors.grey600,
             ),
@@ -94,7 +94,7 @@ class PdfService{
           ),
         ),
         child: pw.Row(
-          mainAxisAlignment: pw.mainAxisAlignment.spaceBetween,
+          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
           children:[
             pw.Text(
               "Generado el ${_formatearFechaHoy()}",
@@ -110,14 +110,14 @@ class PdfService{
 
     pw.Widget _construirInfoAlumno(Alumno alumno){
       return pw.Container(
-        padding: cosnt pw.EdgeInsets.all(16),
+        padding: const pw.EdgeInsets.all(16),
         decoration: pw.BoxDecoration(
           color: PdfColors.orange50,
           borderRadius: pw.BorderRadius.circular(8),
-          border:pw.Border.all(color:PdfColors.Orange200),
+          border:pw.Border.all(color:PdfColors.orange200),
         ),
         child: pw.Column(
-          crossAxisAlignment: pw.crossAxisAlignment.start,
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
             pw.Text(
               "Datos del alumno",
@@ -170,7 +170,7 @@ class PdfService{
           titulo,
           style: pw.TextStyle(
             color: PdfColors.white,
-            frontWeight: pw.FontWeight.bold,
+            fontWeight: pw.FontWeight.bold,
             fontSize: 12,
           ),
         ),
@@ -193,7 +193,7 @@ class PdfService{
       final filas = alquileres.map((a){
         final incio = DateTime.parse(a.fechaInicio);
         final fin = DateTime.parse(a.fechaFin);
-        final dias = fin.difference(incio).inDavs;
+        final dias = fin.difference(incio).inDays;
         final total = dias * a.material.precio;
 
         return[

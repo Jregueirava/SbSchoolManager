@@ -6,9 +6,9 @@ import "../models/horario.dart";
 class HorarioService {
   Future <List<Horario>> obtenerPorClase(int codClase) async {
     final response = await http.get(
-      Uri.parse("${ApiConfig.horario}/clase/$codClase"),
+      Uri.parse("${ApiConfig.horarios}/clase/$codClase"),
     );
-    if (response statusCode == 200){
+    if (response.statusCode == 200){
       final List<dynamic> jsonList = jsonDecode(response.body);
       return jsonList.map((json)=> Horario.fromJson(json)).toList(); 
     }
@@ -22,7 +22,7 @@ class HorarioService {
       body: jsonEncode(horario.toJson()),
     );
     if(response.statusCode == 200){
-      return Horario.fromJson(jsonDecode(respnse.body));
+      return Horario.fromJson(jsonDecode(response.body));
     }
     throw Exception("Error al crear horario: ${response.statusCode}");
   }
@@ -30,7 +30,7 @@ class HorarioService {
   Future<void> eliminar(int id) async{
     final response =
       await http.delete(Uri.parse("${ApiConfig.horarios}/$id"));
-    if(respnse.statusCode !=204){
+    if(response.statusCode !=204){
       throw Exception("Error al eliminar horario: ${response.statusCode}");
     }  
   }

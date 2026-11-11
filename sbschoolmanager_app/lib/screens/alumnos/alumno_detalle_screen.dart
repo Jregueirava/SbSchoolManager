@@ -52,6 +52,7 @@ class _AlumnoDetalleScreenState extends State<AlumnoDetalleScreen>{
         setState((){
             _grupos = resultados[0] as List<Grupo>;
             _contratos = resultados[1] as List<Contratar>;
+            _alquileres = resultados[2] as List<Alquilar>;
             _cargando = false;
 
         });
@@ -64,11 +65,11 @@ class _AlumnoDetalleScreenState extends State<AlumnoDetalleScreen>{
             body: _cargando 
                 ? const Center(child: CircularProgressIndicator())
                 : CustomScrollView(
-                    silvers:[
+                    slivers:[
                         _buildHeader(),
-                        SilverToBoxAdapter(child:_buildInfoBasica()),
-                        SilverToBoxAdapter(child:_buildClases()),
-                        SilverToBoxAdapter(child:_buildMaterial()),
+                        SliverToBoxAdapter(child:_buildInfoBasica()),
+                        SliverToBoxAdapter(child:_buildClases()),
+                        SliverToBoxAdapter(child:_buildMaterial()),
 
                     ],
                 ),
@@ -102,7 +103,7 @@ class _AlumnoDetalleScreenState extends State<AlumnoDetalleScreen>{
                   style: const TextStyle(
                     fontSize:   26,
                     fontWeight: FontWeight.bold,
-                    color:      Colors.white,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -110,8 +111,8 @@ class _AlumnoDetalleScreenState extends State<AlumnoDetalleScreen>{
               Text(
                 "${widget.alumno.nombre} ${widget.alumno.apellido}",
                 style: const TextStyle(
-                  color:      Colors.white,
-                  fontSize:   20,
+                  color:Colors.white,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -132,7 +133,7 @@ class _AlumnoDetalleScreenState extends State<AlumnoDetalleScreen>{
                 child: Text(
                   nivel,
                   style: const TextStyle(
-                    color:      Colors.white,
+                    color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize:   12,
                   ),
@@ -191,7 +192,7 @@ class _AlumnoDetalleScreenState extends State<AlumnoDetalleScreen>{
                   icono: Icons.family_restroom,
                   label: "Datos de padres",
                   valor: widget.alumno.datosPadres ??
-                      "No registrados (mayor de edad)",
+                     "No registrados (mayor de edad)",
                 ),
               ],
             ),
