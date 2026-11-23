@@ -5,10 +5,10 @@ import "../../models/profesor.dart";
 import "../../services/clase_skate_service.dart";
 import "../../services/profesor_service.dart";
 
-class ProfsorDetalleScreen extends StatefulWidget{
-  const ProfesorDetalleScreen({super.key, required this.profesorId});
+class ProfesorDetalleScreen extends StatefulWidget{
+  const ProfesorDetalleScreen({super.key, required this.codProfesor});
 
-  final int profesorId;
+  final int codProfesor;
 
   @override
   State<ProfesorDetalleScreen> createState() => _ProfesorDetalleScreenState();
@@ -16,7 +16,7 @@ class ProfsorDetalleScreen extends StatefulWidget{
 
 class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
   final _profesorService = ProfesorService();
-  final _claseService = ClaseService();
+  final _claseService = ClaseSkateService();
   late Future<(Profesor, List<ClaseSkate>)> _dataFuture;
 
   @override
@@ -78,23 +78,71 @@ class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
               ) 
             else 
               ...clases.map(
-                (clases) => Card(
+                (clase) => Card(
                   color: AppColors.surface,
-                  child: Text(clase.tipo),
+                  child: ListTile(
+                  title: Text(clase.tipo),
                   subtitle: Text(
                     "${clase.duracion} h · ${clase.tarifa.toStringAsFixed(2)} €"
+                    ),
                   ),
-                ),
+               ),
               ),
-
-            ]
+            ],
           );
-        }
-      )
+        },
+      ),
     );
   }
 }
 
 class _ProfesorHeader extends StatelessWidget {
-  
+  const _ProfesorHeader({required this.profesor});
+
+  final Profesor profesor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          const CircleAvatar(
+            radius: 32,
+            backgroundColor: AppColors.primary,
+            child: Icon(Icons.person, size: 32, color: Colors.white),
+          ),
+         const SizedBox(width: 16),
+         Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                profesor.nombreCompleto,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                "${profesor.anosExperiencia} años de experiencia",
+                style: const TextStyle(color: AppColors.textSecondary),
+              ),
+              Text(
+                "DNI: ${profesor.dni}",
+                style: const TextStyle(color: AppColors.textSecondary),
+              ),
+            ],
+          ),
+         ) ,
+        ],
+      ),
+    );
+  }
 }
