@@ -36,7 +36,7 @@ class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
   @override
   Widget build (BuildContext context){
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.grisFondo,
       appBar: AppBar(
         title: const Text("Profesor"),
         backgroundColor: AppColors.primary,
@@ -52,7 +52,7 @@ class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
           if(snapshot.hasError || !snapshot.hasData){
             return const Center(
               child: Text("Error  al cargar el profesor",
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: AppColors.grisMedio),
               ),
             );
           }
@@ -66,7 +66,7 @@ class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
               Text(
                 "Sus clases",
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: AppColors.textPrimary,
+                  color: AppColors.grisOscuro,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -74,12 +74,12 @@ class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
               if(clases.isEmpty)
               const Text(
                 "Este profesor no tiene clases asignadas",
-                style: TextStyle(color: AppColors.textSecondary),
+                style: TextStyle(color: AppColors.grisMedio),
               ) 
             else 
               ...clases.map(
                 (clase) => Card(
-                  color: AppColors.surface,
+                  color: AppColors.blanco,
                   child: ListTile(
                   title: Text(clase.tipo),
                   subtitle: Text(
@@ -106,7 +106,7 @@ class _ProfesorHeader extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: AppColors.blanco,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -126,17 +126,17 @@ class _ProfesorHeader extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
+                  color: AppColors.grisOscuro,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
                 "${profesor.anosExperiencia} años de experiencia",
-                style: const TextStyle(color: AppColors.textSecondary),
+                style: const TextStyle(color: AppColors.grisMedio),
               ),
               Text(
                 "DNI: ${profesor.dni}",
-                style: const TextStyle(color: AppColors.textSecondary),
+                style: const TextStyle(color: AppColors.grisMedio),
               ),
             ],
           ),

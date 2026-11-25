@@ -88,7 +88,7 @@ class _ProfesorFormScreenState extends State<ProfesorFormScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.grisFondo,
       appBar: AppBar(
         title: const Text("Nuevo profesor"),
         backgroundColor: AppColors.primary,

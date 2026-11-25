@@ -77,7 +77,7 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.grisFondo,
       appBar: AppBar(
         title: const Text("Nueva clase"),
         backgroundColor: AppColors.primary,
@@ -127,7 +127,7 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
                 if(snapshot.hasError){
                   return const Text(
                     "No se pudieron cargar los profesores",
-                    style: TextStyle(color: AppColors.textSecondary),
+                    style: TextStyle(color: AppColors.grisMedio),
                   );
                 }
 

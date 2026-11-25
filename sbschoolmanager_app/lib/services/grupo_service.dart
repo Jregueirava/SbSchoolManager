@@ -25,14 +25,14 @@ class GrupoService {
     body: jsonEncode(grupo.toJson()),
     );
 
-    if(response.statusCode == 200){
+    if(response.statusCode == 200 || response.statusCode == 201){
       return Grupo.fromJson(jsonDecode(response.body));
     } 
     throw Exception("Error al crear el grupo: ${response.statusCode}");
   }
 
   Future<void> eliminar(int id) async{
-    final response = await http.delete(Uri.parse("{$ApiConfig.grupos}/$id"));
+    final response = await http.delete(Uri.parse("${ApiConfig.grupos}/$id"));
 
     if(response.statusCode != 204){
       throw Exception("Error al eliminar el grupo: ${response.statusCode}");

@@ -50,7 +50,7 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
   @override
   Widget build (BuildContext context){
     return Scaffold(
-      backgroundColor: AppColors.background;
+      backgroundColor: AppColors.grisFondo;
       appBar: AppBar(
         title: const Text("Clase de skate"),
         backgroundColor: AppColors.primary,
@@ -80,7 +80,7 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
             return const Center(
               child: Text(
                 "Error al cargar las clases",
-                style: TextStyle(color: AppColors.textSecondary),
+                style: TextStyle(color: AppColors.grisMedio),
               ),
             );
           }
@@ -90,7 +90,7 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
             return const Center(
               child: Text(
                 "Todavía no hay clases",
-                style: TextStyle(color: AppColors.textSecondary),
+                style: TextStyle(color: AppColors.grisMedio),
               ),
             );
           }
@@ -122,20 +122,20 @@ class _ClaseCard extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Card(
-      color: AppColors.surface,
+      color: AppColors.blanco,
       child: ListTile(
         onTap: onTap,
         leading: const Icon(Icons.skateboarding, color: AppColors.primary),
         title: Text(
           clase.tipoClase,
           style: const TextStyle(
-            color: AppColors.textPrimary,
+            color: AppColors.grisOscuro,
             fontWeight: FontWeight.w600,
           ),
         ),
         subtitle: Text(
           "${clase.duracion} h · ${clase.tarifa.toStringAsFixed(2)} €",
-          style: const TextStyle(color: AppColors.textSecondary),
+          style: const TextStyle(color: AppColors.grisMedio),
         ),
         trailing: const Icon(Icons.chevron_rigth),
       ),
