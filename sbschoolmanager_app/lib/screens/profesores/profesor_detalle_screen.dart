@@ -26,9 +26,10 @@ class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
   }
 
   Future<(Profesor, List<ClaseSkate>)> _loadData() async{
-    final profesor = await _profesorService.obtenerPorId(widget.codProfesor);
-    final todasLasClases = await _claseService.obtenerTodos();
-    final susClases =  todasLasClases .where((clase) => clase.codProfesor == widget.codProfesor). toList();
+    final profesores = await _profesorService.obtenerTodos();
+    final profesor = profesores.firstWhere((profesor) => profesor.codProfesor == widget.codProfesor);
+    final todasLasClases = await _claseService.obtenerTodas();
+    final susClases =  todasLasClases .where((clase) => clase.profesor.codProfesor == widget.codProfesor). toList();
 
     return (profesor, susClases);
   }
@@ -81,9 +82,9 @@ class _ProfesorDetalleScreenState extends State<ProfesorDetalleScreen> {
                 (clase) => Card(
                   color: AppColors.blanco,
                   child: ListTile(
-                  title: Text(clase.tipo),
+                  title: Text(clase.tipoClase),
                   subtitle: Text(
-                    "${clase.duracion} h · ${clase.tarifa.toStringAsFixed(2)} €"
+                    "${clase.tarifa.toStringAsFixed(2)} €"
                     ),
                   ),
                ),
@@ -122,7 +123,7 @@ class _ProfesorHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                profesor.nombreCompleto,
+                "${profesor.nombre} ${profesor.apellido}",
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

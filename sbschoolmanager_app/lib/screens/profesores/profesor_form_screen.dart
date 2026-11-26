@@ -42,7 +42,7 @@ class _ProfesorFormScreenState extends State<ProfesorFormScreen>{
     try{
       final profesor = Profesor(
         nombre: _nombreController.text.trim(),
-        apellido: _apellidoController.text.trim();
+        apellido: _apellidoController.text.trim(),
         dni: _dniController.text.trim().toUpperCase(),
         anosExperiencia: int.parse(_experienciaController.text),
       );

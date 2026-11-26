@@ -14,7 +14,7 @@ class ProfesorListScreen extends StatefulWidget{
 
 class _ProfesorListScreenState extends State<ProfesorListScreen>{
     final _service = ProfesorService();
-    late Future<List<Profesor>> _ProfesoresFuture;
+    late Future<List<Profesor>> _profesoresFuture;
 
     @override
     void initState(){
@@ -23,7 +23,7 @@ class _ProfesorListScreenState extends State<ProfesorListScreen>{
     }
 
     void _cargarProfesores(){
-        setState(() => _ProfesoresFuture = _service.obtenerTodos());
+        setState(() => _profesoresFuture = _service.obtenerTodos());
     }
 
     Future<void> _eliminar(int id) async{
@@ -52,7 +52,7 @@ class _ProfesorListScreenState extends State<ProfesorListScreen>{
             ),
             body: FutureBuilder<List<Profesor>>(
                 future: _profesoresFuture,
-                builder: (context, sanpshot){
+                builder: (context, snapshot){
                     if(snapshot.connectionState == ConnectionState.waiting){
                         return const Center(child: CircularProgressIndicator());
                     }
@@ -121,7 +121,7 @@ class _ProfesorListScreenState extends State<ProfesorListScreen>{
                                                     borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: Text(
-                                                    "${p.anos.Experiencia} años",
+                                                    "${p.anosExperiencia} años",
                                                     style: const TextStyle(
                                                         color: AppColors.primary,
                                                         fontSize: 10,

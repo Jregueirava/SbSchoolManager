@@ -39,7 +39,7 @@ class ClaseSkateService{
   Future<void> eliminar(int id) async{
     final response = await http.delete(Uri.parse("${ApiConfig.clases}/$id"));
 
-    if(response.statusCode !=240){
+    if(response.statusCode !=204){
       throw Exception("Error al eliminar clase: ${response.statusCode}");
     }
   }

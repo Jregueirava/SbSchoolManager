@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:sbschoolmanager_app/services/clase_skate_service.dart";
 import "../../config/app_colors.dart";
 import "../../models/clase_skate.dart";
 import "../../models/profesor.dart";
@@ -23,7 +22,7 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
   final _profesorService = ProfesorService();
 
   late final Future<List<Profesor>> _profesoresFuture;
-  int? _codProfesor;
+  Profesor? _profesor;
   bool _isSaving = false;
 
   @override
@@ -36,22 +35,20 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
   void dispose(){
     _tipoController.dispose();
     _tarifaController.dispose();
-    _duracionController.dispose();
     super.dispose();
   }
 
   Future<void> _submit() async{
-    if(!_formKey.currentState.validate()){
+    if(!_formKey.currentState!.validate()){
       return;
     }
 
     setState(() => _isSaving = true);
 
     final clase = ClaseSkate(
-      codProfesor: _codProfesor!,
+      profesor: _profesor!,
       tipoClase: _tipoController.text.trim(),
       tarifa: double.parse(_tarifaController.text.replaceAll(",", ".")),
-      duracion: int.parse(_duracionController.text),
     );
 
     try{
@@ -74,6 +71,17 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
     return null;
   }
 
+  String? _validateTarifa(String? value){
+    final requiredError = _validateRequired(value);
+    if(requiredError != null) return requiredError;
+
+    final tarifa = double.tryParse(value!.replaceAll(",", "."));
+    if(tarifa == null || tarifa <= 0){
+      return "Introduce un número mayor que 0";
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -81,7 +89,7 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
       appBar: AppBar(
         title: const Text("Nueva clase"),
         backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
+        foregroundColor: AppColors.blanco,
       ),
       body: Form(
         key: _formKey,
@@ -90,6 +98,7 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
           children: [
             TextFormField(
               controller: _tipoController,
+              textCapitalization: TextCapitalization.sentences,
               decoration: const InputDecoration(
                 labelText: "Tipo de clase",
                 border: OutlineInputBorder(),
@@ -104,7 +113,7 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
                 labelText: "Tarifa (€) ",
                 border: OutlineInputBorder(),
               ),
-              validator: _validatePositiveNumber,
+              validator: _validateTarifa,
             ),
             const SizedBox(height: 16),
             TextFormField(
@@ -114,7 +123,7 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
                 labelText: "Duración (horas)",
                 border: OutlineInputBorder(),
               ),
-              validator: _validatePositiveNumber,
+              validator: _validateTarifa,
             ),
             const SizedBox(height: 16),
             FutureBuilder<List<Profesor>>(
@@ -133,20 +142,20 @@ class _ClaseFormScreenState extends State<ClaseFormScreen> {
 
                 final profesores = snapshot.data ?? [];
 
-                return DropdownButtonFormField<int>(
-                  initialValue: _codProfesor,
+                return DropdownButtonFormField<Profesor>(
+                  initialValue: _profesor,
                   decoration: const InputDecoration(
                     labelText: "Profesor",
                     border: OutlineInputBorder(),
                   ),
                   items: profesores.map(
-                    (profesor) => DropdownMenuItem<int>(
-                      value: profesor.codProfesor!,
-                      child: Text(profesor.nombreCompleto),
+                    (profesor) => DropdownMenuItem<Profesor>(
+                      value: profesor,
+                      child: Text("${profesor.nombre} ${profesor.apellido}"),
                     ),
                   )
                   .toList(),
-                  onChanged: (value) => setState(() => _codProfesor = value),
+                  onChanged: (value) => setState(() => _profesor = value),
                   validator: (value) => value == null ? "Selecciona un profesor" : null,
                 );
               },

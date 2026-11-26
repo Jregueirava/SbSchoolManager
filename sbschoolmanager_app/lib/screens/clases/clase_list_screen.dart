@@ -5,6 +5,7 @@ import "../../services/clase_skate_service.dart";
 import "../clases/clase_form_screen.dart";
 import "../profesores/profesor_detalle_screen.dart";
 import "../profesores/profesor_form_screen.dart";
+import "../horarios/horario_list_screen.dart";
 
 class ClaseListScreen extends StatefulWidget{
   const ClaseListScreen({super.key});
@@ -28,6 +29,13 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
     });
   }
 
+  Future<void> _openClaseForm() async{
+    final created = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => const ClaseFormScreen()),
+    );
+    if(created == true){
+      _realoadClases();
+    }
+  }
   Future<void> _openProfesorForm() async{
     final created = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => const ProfesorFormScreen()),
     );
@@ -37,6 +45,14 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
         const SnackBar (content: Text("Profesor creado correctamente")),
       );
     }
+  }
+
+  void _openHorarios(ClaseSkate clase){
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => HorarioListScreen(claseSkate: clase),
+      ),
+    );
   }
 
   void _openProfesorDetalle(int codProfesor){
@@ -50,7 +66,7 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
   @override
   Widget build (BuildContext context){
     return Scaffold(
-      backgroundColor: AppColors.grisFondo;
+      backgroundColor: AppColors.grisFondo,
       appBar: AppBar(
         title: const Text("Clase de skate"),
         backgroundColor: AppColors.primary,
@@ -72,7 +88,7 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
       body: FutureBuilder<List<ClaseSkate>>(
         future: _clasesFuture,
         builder: (context, snapshot){
-          if(snapshot.connectionState == ConncectionState.waiting){
+          if(snapshot.connectionState == ConnectionState.waiting){
             return const Center(child: CircularProgressIndicator());
           }
 
@@ -103,7 +119,8 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
               final clase = clases[index];
               return _ClaseCard(
                 clase: clase,
-                onTap: () => _openProfesorDetalle(clase.codProfesor),
+                onTap: () => _openHorarios(clase),
+                onProfesorTap: () => _openProfesorDetalle(clase),
               );
             },
           );
@@ -114,30 +131,42 @@ class _ClaseListScreenState extends State<ClaseListScreen>{
 }
 
 class _ClaseCard extends StatelessWidget{
-  const _ClaseCard({required this.clase, required this.onTap});
+  const _ClaseCard({required this.clase, required this.onTap, required this.onProfesorTap,});
 
   final ClaseSkate clase;
   final VoidCallback onTap;
+  final VoidCallback onProfesorTap;
 
   @override
   Widget build(BuildContext context){
+    final profesor = clase.profesor;
+    
     return Card(
       color: AppColors.blanco,
       child: ListTile(
-        onTap: onTap,
-        leading: const Icon(Icons.skateboarding, color: AppColors.primary),
-        title: Text(
-          clase.tipoClase,
-          style: const TextStyle(
-            color: AppColors.grisOscuro,
-            fontWeight: FontWeight.w600,
-          ),
+       onTap: onTap,
+       leading: const CircleAvatar(
+        backgroundColor: AppColors.primarySoft,
+        child: Icon(Icons.skateboarding, color: AppColors.primary),
+       ),
+       title: Text(
+        clase.tipoClase,
+        style: const TextStyle(
+          color: AppColors.grisOscuro,
+          fontWeight: FontWeight.w600,
         ),
-        subtitle: Text(
-          "${clase.duracion} h · ${clase.tarifa.toStringAsFixed(2)} €",
-          style: const TextStyle(color: AppColors.grisMedio),
-        ),
-        trailing: const Icon(Icons.chevron_rigth),
+       ),
+       subtitle: Text(
+        "Prof. ${profesor.nombre} ${profesor.apellido} · "
+        "${clase.tarifa.toStringAsFixed(2)} €",
+        style: const TextStyle(color: AppColors.grisMedio),
+       ),
+       trailing: IconButton(
+        tooltip: "Ver profesor",
+        icon: const Icon(Icons.person_outline),
+        color: AppColors.grisMedio,
+        onPressed: onProfesorTap,
+       ),
       ),
     );
   }
